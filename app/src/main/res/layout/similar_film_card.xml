@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="similarFilm"
+            type="com.example.androidfilms.models.Film" />
+        <variable
+            name="listener"
+            type="com.example.androidfilms.adapters.SimilarsRecyclerAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:onClick="@{(view) -> listener.filmClicked(view, similarFilm)}"
+            app:cardCornerRadius="8dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:downloadImage="@{similarFilm.posterPath}"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#B3000000"
+                android:maxLines="1"
+                android:padding="2dp"
+                android:text="@{similarFilm.title}"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
