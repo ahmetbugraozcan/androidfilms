@@ -4,12 +4,17 @@
         <variable
             name="film"
             type="com.example.androidfilms.models.Film" />
+        <variable
+            name="listener"
+            type="com.example.androidfilms.adapters.FilmClickListener" />
     </data>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:onClick="@{(view) -> listener.filmClicked(view, film)}"
+        >
 
         <ImageView
             android:id="@+id/list_item_image"
@@ -17,6 +22,7 @@
             android:layout_height="55dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:downloadImage="@{film.posterPath}"
             android:layout_margin="7dp" />
 
         <TextView
@@ -27,14 +33,6 @@
             android:layout_alignParentEnd="true"
             android:layout_toEndOf="@id/list_item_image"
             android:text="@{film.title}" />
-
-        <TextView
-            android:id="@+id/age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/list_item_image"
-            android:layout_alignParentRight="true"
-            android:text="Age" />
 
     </RelativeLayout>
 </layout>

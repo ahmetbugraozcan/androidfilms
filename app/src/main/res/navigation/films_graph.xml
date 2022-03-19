@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/films_graph"
     app:startDestination="@id/homeFragment">
+
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.androidfilms.views.HomeFragment"
@@ -11,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_filmDetailsFragment"
             app:destination="@id/filmDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/filmDetailsFragment"
@@ -27,5 +32,23 @@
         <action
             android:id="@+id/action_filmDetailsFragment_self"
             app:destination="@id/filmDetailsFragment" />
+        <action
+            android:id="@+id/action_filmDetailsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.androidfilms.views.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_filmDetailsFragment"
+            app:destination="@id/filmDetailsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_self"
+            app:destination="@id/searchFragment" />
     </fragment>
 </navigation>

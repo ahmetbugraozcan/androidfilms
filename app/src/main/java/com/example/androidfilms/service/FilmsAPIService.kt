@@ -37,6 +37,7 @@ class FilmsAPIService {
     }
 
     fun searchMovies(searchText: String) : Single<FilmData> {
+        println("SEARCHMOVİES")
         return api.searchMovies(searchText)
     }
 }
